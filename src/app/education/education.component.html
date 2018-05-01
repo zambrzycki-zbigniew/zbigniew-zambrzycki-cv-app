@@ -1,0 +1,18 @@
+<div class="section">
+    <div>
+        <h1>{{education.getHeader()}}</h1>
+        <ul>
+            <li *ngFor="let course of education.getCourses()">
+                {{course.getYears()}}
+                <ul>
+                    <li>
+                        {{course.getSchool(education.getLanguage())}}
+                    </li>
+                    <li>
+                        {{course.getClass(education.getLanguage())}}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

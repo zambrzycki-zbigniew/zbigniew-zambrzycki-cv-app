@@ -1,0 +1,20 @@
+<div class="section">
+    <div>
+        <h1>{{allSkills.getHeader()}}</h1>
+        <ul>
+            <li *ngFor="let skillset of allSkills.skillsets">
+                {{skillset.getName(allSkills.getLanguage())}}
+                <ul>
+                    <li *ngFor="let skill of skillset.skills">
+                        {{skill.getSkillName(allSkills.getLanguage())}} ({{skill.getSkillLevel(allSkills.getLanguage())}})
+                        <ul *ngIf="skill.isSkillProven()">
+                            <li>
+                                {{skill.getSkillProof()}} {{skill.getSkillProofAlias(allSkills.getLanguage())}}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
