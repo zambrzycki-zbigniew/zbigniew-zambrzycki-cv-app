@@ -18,7 +18,7 @@ export class EducationComponent implements OnInit {
       new Course(2007,2010,[
         "Liceum Ogólnokształcące im. Mikołaja Kopernika nr. 1","High school"],
         ["Mat-fiz-inf","Math, physics and informatics"]),
-      new Course(2011,2013,
+      new Course(2010,2012,
         ["Uniwersytet im. Mikołaja Kopernika w Toruniu","'Nicolai Copernicus' College in Toruń"],
         ["Informatyka Stosowana","Applied Computer Science"]),
       new Course(2018,0,

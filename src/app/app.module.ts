@@ -9,6 +9,12 @@ import { EducationComponent } from './education/education.component';
 import { KeySkillsComponent } from './key-skills/key-skills.component';
 import { AdditionalInfoComponent } from './additional-info/additional-info.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+import { AuthService } from './shared/auth.service';
+
 
 @NgModule({
   declarations: [
@@ -20,9 +26,12 @@ import { AdditionalInfoComponent } from './additional-info/additional-info.compo
     AdditionalInfoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase, 'zbigniew-zambrzycki-cv'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

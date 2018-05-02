@@ -2,10 +2,10 @@
     <div>
         <h1>{{allSkills.getHeader()}}</h1>
         <ul>
-            <li *ngFor="let skillset of allSkills.skillsets">
+            <li *ngFor="let skillset of allSkills.getSkillsets()">
                 {{skillset.getName(allSkills.getLanguage())}}
                 <ul>
-                    <li *ngFor="let skill of skillset.skills">
+                    <li *ngFor="let skill of skillset.getSkills()">
                         {{skill.getSkillName(allSkills.getLanguage())}} ({{skill.getSkillLevel(allSkills.getLanguage())}})
                         <ul *ngIf="skill.isSkillProven()">
                             <li>
