@@ -1,0 +1,25 @@
+div.hiding {
+    display: block;
+    opacity: 0;
+    height: 0px;
+    margin: 0%;
+    padding: 0%;
+}
+
+a {
+    color: teal;
+    text-shadow:    -0.01vw 0 0.01vw teal,
+                    0 0.01vw 0.01vw teal,
+                    0.01vw 0 0.01vw teal,
+                    0 -0.01vw 0.01vw teal;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(0, 160, 160);
+    text-shadow:    -0.01vw 0 0.01vw rgb(0, 160, 160),
+                    0 0.01vw 0.01vw rgb(0, 160, 160),
+                    0.01vw 0 0.01vw rgb(0, 160, 160),
+                    0 -0.01vw 0.01vw rgb(0, 160, 160);
+
+}

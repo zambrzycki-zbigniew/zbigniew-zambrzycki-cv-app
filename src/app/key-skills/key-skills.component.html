@@ -1,17 +1,34 @@
-<div class="section">
+<div class="section"
+(mouseleave) ="stateReset()"
+(click) ="stateChange()">
     <div>
-        <h1>{{allSkills.getHeader()}}</h1>
+        <h1>{{section.getHeader()}}</h1>
         <ul>
-            <li *ngFor="let skillset of allSkills.getSkillsets()">
-                {{skillset.getName(allSkills.getLanguage())}}
-                <ul>
-                    <li *ngFor="let skill of skillset.getSkills()">
-                        {{skill.getSkillName(allSkills.getLanguage())}} ({{skill.getSkillLevel(allSkills.getLanguage())}})
-                        <ul *ngIf="skill.isSkillProven()">
-                            <li>
-                                {{skill.getSkillProof()}} {{skill.getSkillProofAlias(allSkills.getLanguage())}}
-                            </li>
-                        </ul>
+            <li *ngFor="let skillset of section.getList()">
+                {{skillset.getText(section.getLanguage())}}
+                <ul *ngIf="skillset.isParent()">
+                    <li *ngFor="let skill of skillset.getChildren()">
+                        {{skill.getText(section.getLanguage())}}
+                        <img *ngIf="skill.isParent()" 
+                        src='/assets/images/expand-arrow.png' alt="expand"
+                        (mouseenter) ="stateChange()"
+                        (click) ="stateChange()">
+
+                        <div *ngIf="skill.isParent()">
+                            <div *ngFor="let proof of skill.getChildren()" 
+                              class="hiding"
+                              [@mouseEvent]="state">
+                                <ul>
+                                    <li>
+                                        <a
+                                          [href]="proof.getChildren()[0].getText(section.getLanguage())"
+                                          target="_blank">
+                                            {{proof.getText(section.getLanguage())}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </li>

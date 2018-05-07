@@ -1,0 +1,23 @@
+#changeLanguageButton {
+    background-image: url(/assets/images/pl.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    border: none;
+    cursor: pointer;
+    height: 64px;
+    width: 64px;
+    position: absolute;
+    top: 34px;
+    font-family: "Arial";
+    font-size:calc(5px+0.5vw);
+    text-shadow:    -0.01vw 0 0.01vw black,
+                    0 0.01vw 0.01vw black,
+                    0.01vw 0 0.01vw black,
+                    0 -0.01vw 0.01vw black;
+    transform:scale(0.5);
+}
+
+button:focus {
+    outline:0;
+}

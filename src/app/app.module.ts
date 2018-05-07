@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 
@@ -14,6 +15,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { AuthService } from './shared/auth.service';
+import { PersonalDataProtectionClauseComponent } from './personal-data-protection-clause/personal-data-protection-clause.component';
+import { LanguageChageComponent } from './language-chage/language-chage.component';
 
 
 @NgModule({
@@ -23,10 +26,13 @@ import { AuthService } from './shared/auth.service';
     CareerAimsComponent,
     EducationComponent,
     KeySkillsComponent,
-    AdditionalInfoComponent
+    AdditionalInfoComponent,
+    PersonalDataProtectionClauseComponent,
+    LanguageChageComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase, 'zbigniew-zambrzycki-cv'),
     AngularFireDatabaseModule,
     AngularFireAuthModule

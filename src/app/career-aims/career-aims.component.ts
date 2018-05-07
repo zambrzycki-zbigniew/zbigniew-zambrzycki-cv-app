@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
-import { Objectives } from './objectives';
+import * as ArticleModule from '../section/article';
 
 @Component({
   selector: 'app-career-aims',
@@ -9,14 +9,21 @@ import { Objectives } from './objectives';
 })
 export class CareerAimsComponent implements OnInit {
 
-  objectives: Objectives;
+  section: ArticleModule.Article;
 
-  constructor() { }
+  @Input() 
+  set languageIndex(index: number) {
+    this.section.languageIndex = index;
+  }
+
+  constructor() {
+    this.section = new ArticleModule.Article(["Cele zawodowe","Career objectives"],[
+      "Poszukuję sposobności by rozwijać moje umiejętności techniczne pracując w profesjonalnym środowisku i zostania w dłuższej perspektywie inżynierem oprogramowania.",
+      "Seeking for an opportunity to develop my technical skills by working for a professional company and become a software engineer in the longer perspective."
+    ]);
+   }
 
   ngOnInit() {
-    this.objectives = new Objectives(
-                      "Moje cele zawodowe to...",
-                      "My careers objectives are...");
   }
 
 }

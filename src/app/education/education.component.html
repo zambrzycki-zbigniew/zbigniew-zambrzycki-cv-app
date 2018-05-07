@@ -1,15 +1,26 @@
-<div class="section">
+<div class="section" 
+(mouseleave) ="stateReset()"
+(click) ="stateChange()">
     <div>
-        <h1>{{education.getHeader()}}</h1>
+        <h1>{{section.getHeader()}}</h1>
         <ul>
-            <li *ngFor="let course of education.getCourses()">
-                {{course.getYears()}}
-                <ul>
-                    <li>
-                        {{course.getSchool(education.getLanguage())}}
-                    </li>
-                    <li>
-                        {{course.getClass(education.getLanguage())}}
+            <li *ngFor="let years of section.getList()">
+                {{years.getText(section.getLanguage())}}
+                <ul *ngIf="years.isParent()">
+                    <li *ngFor="let course of years.getChildren()">
+                        {{course.getText(section.getLanguage())}}
+                        <img *ngIf="course.isParent()" 
+                        src='/assets/images/expand-arrow.png' alt="expand"
+                        (mouseenter) ="stateChange()"
+                        (click) ="stateChange()">
+
+                        <div *ngIf="course.isParent()">
+                            <div *ngFor="let reason of course.getChildren()" 
+                              class="hiding"
+                              [@mouseEvent]="state">
+                                <ul><li>{{reason.getText(section.getLanguage())}}</li></ul>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </li>

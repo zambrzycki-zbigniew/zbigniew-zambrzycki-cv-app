@@ -21,23 +21,3 @@
     font-family: "Arial";
     font-size:calc(16px + 2vw);
 }
-
-@media screen and (max-width: 900px) {
-
-    ::ng-deep div.section {
-        overflow: auto;
-        margin: 5px auto;
-        border-radius: 15px;
-        border: 2px solid rgb(192, 192, 192);
-        background-color: rgb(240, 240, 240);
-        padding: 20px; 
-        width: 80vw;
-        display: block;
-        font-family: "Arial";
-        font-size:calc(10px + 0.5vw);
-        text-shadow:    -0.01vw 0 0.01vw black,
-                        0 0.01vw 0.01vw black,
-                        0.01vw 0 0.01vw black,
-                        0 -0.01vw 0.01vw black;
-    }
-}

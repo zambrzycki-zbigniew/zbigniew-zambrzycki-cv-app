@@ -1,42 +1,15 @@
-<div class="section">
+<div class="section" >
     <div>
-        <h1>{{details.getName()}}</h1>
+        <h1>{{section.getHeader()}}</h1>
         <table>
-            <tr>
-                <td>
-                    {{details.getDescription(1)}}
+            <tr *ngFor="let tableRow of section.getTable()">
+                <td class="left">
+                    {{tableRow.getDescription(section.getLanguage())}}
                 </td>
                 <td>
-                    {{details.getEmail()}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {{details.getDescription(2)}}
-                </td>
-                <td>
-                    {{details.getAddress()}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {{details.getDescription(3)}}
-                </td>
-                <td>
-                    {{details.getBirthdate()}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {{details.getDescription(4)}}
-                </td>
-                <td>
-                    {{details.getMobile()}}
+                    {{tableRow.getText(section.getLanguage())}}                        
                 </td>
             </tr>
         </table>
-    </div>
-    <div class="photo">
-        This is photo section.
     </div>
 </div>

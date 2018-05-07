@@ -1,7 +1,23 @@
-
-<app-personal-details></app-personal-details>
-<app-career-aims></app-career-aims>
-<app-education></app-education>
-<app-key-skills></app-key-skills>
-<app-additional-info>to jeszcze jest nietknięte</app-additional-info>
-<button (click)="loginWithGoogle()">Login with Google</button>
+<app-language-chage></app-language-chage>
+<div class="container"
+  [@visibility]="animator.visibility"
+  (@visibility.done)="animator.changeLanguage($event)">
+    <app-personal-details 
+      [languageIndex]="animator.languageIndex">
+    </app-personal-details>
+    <app-career-aims 
+      [languageIndex]="animator.languageIndex">
+    </app-career-aims>
+    <app-education 
+      [languageIndex]="animator.languageIndex">
+    </app-education>
+    <app-key-skills 
+      [languageIndex]="animator.languageIndex">
+    </app-key-skills>
+    <app-additional-info 
+      [languageIndex]="animator.languageIndex">
+    </app-additional-info>
+    <app-personal-data-protection-clause 
+      [languageIndex]="animator.languageIndex">
+    </app-personal-data-protection-clause>
+</div>

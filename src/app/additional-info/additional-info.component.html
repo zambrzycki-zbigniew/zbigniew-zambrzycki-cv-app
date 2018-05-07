@@ -1,10 +1,16 @@
 <div class="section">
     <div>
-        <h1></h1>
+        <h1>{{section.getHeader()}}</h1>
         <ul>
-            <li>
-                
+            <li *ngFor="let additionalInfo of section.getList()">
+                {{additionalInfo.getText(section.getLanguage())}}
+                <ul *ngIf="additionalInfo.isParent()">
+                    <li *ngFor="let deeperInfo of additionalInfo.getChildren()">
+                        {{deeperInfo.getText(section.getLanguage())}}
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>
 </div>
+    
