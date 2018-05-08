@@ -1,5 +1,5 @@
 <div class="section" 
-(mouseleave) ="stateReset()"
+(mouseleave) ="stateChange('none')"
 (click) ="stateChange()">
     <div>
         <h1>{{section.getHeader()}}</h1>
@@ -11,12 +11,13 @@
                         {{course.getText(section.getLanguage())}}
                         <img *ngIf="course.isParent()" 
                         src='/assets/images/expand-arrow.png' alt="expand"
-                        (mouseenter) ="stateChange()"
+                        (mouseenter) ="stateChange('block')"
                         (click) ="stateChange()">
 
                         <div *ngIf="course.isParent()">
                             <div *ngFor="let reason of course.getChildren()" 
                               class="hiding"
+                              (mouseenter) ="stateChange('block')"
                               [@mouseEvent]="state">
                                 <ul><li>{{reason.getText(section.getLanguage())}}</li></ul>
                             </div>

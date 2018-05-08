@@ -1,11 +1,7 @@
 import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
-import {
-    trigger,
-    state,
-    style,
-    animate,
-    transition
-  } from '@angular/animations';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { animateButton } from '../section/animation';
+
 
 @Component({
   selector: 'app-language-chage',
@@ -14,26 +10,7 @@ import {
   },
   templateUrl: './language-chage.component.html',
   styleUrls: ['./language-chage.component.scss'],
-  animations: [
-    trigger('sizeAnimation', [
-      state("*", style({
-        top: '{{topOffset}}',
-        left: '{{leftOffset}}',
-      }), {params: {
-            topOffset: '30%',
-            leftOffset: '50%'}}),
-      transition('* => *', animate('600ms 200ms ease-in-out'))
-    ]),
-    trigger('changeAnimation', [
-      state("pl", style({
-        backgroundImage: `url('/assets/images/pl.png')`
-      })),
-      state("eng", style({
-        backgroundImage: `url('/assets/images/eng.png')`
-      })),
-      transition('* => *', animate('600ms'))
-    ])
-  ]
+  animations: [ animateButton ]
 })
 
 export class LanguageChageComponent implements OnInit {
@@ -49,7 +26,6 @@ export class LanguageChageComponent implements OnInit {
     this.topOffset = (34+window.pageYOffset)+"px";
     this.leftOffset = (window.innerWidth/20-34)+"px";
     this.language = "pl";
-    console.log(window.location.pathname);
   }
 
     handleClick(event){
@@ -62,7 +38,6 @@ export class LanguageChageComponent implements OnInit {
             clickedComponent = clickedComponent.parentNode;
         } while (clickedComponent);
         if(inside) if (this.language!="pl") this.language="pl"; else this.language="eng";
-        console.log(window.location.pathname);
     }
 
     @HostListener('window:scroll', ['$event'])

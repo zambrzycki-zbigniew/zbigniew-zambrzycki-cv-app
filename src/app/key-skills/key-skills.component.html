@@ -1,5 +1,5 @@
 <div class="section"
-(mouseleave) ="stateReset()"
+(mouseleave) ="stateChange('none')"
 (click) ="stateChange()">
     <div>
         <h1>{{section.getHeader()}}</h1>
@@ -11,7 +11,7 @@
                         {{skill.getText(section.getLanguage())}}
                         <img *ngIf="skill.isParent()" 
                         src='/assets/images/expand-arrow.png' alt="expand"
-                        (mouseenter) ="stateChange()"
+                        (mouseenter) ="stateChange('block')"
                         (click) ="stateChange()">
 
                         <div *ngIf="skill.isParent()">
@@ -21,6 +21,7 @@
                                 <ul>
                                     <li>
                                         <a
+                                          (mouseenter) ="stateChange('block')"
                                           [href]="proof.getChildren()[0].getText(section.getLanguage())"
                                           target="_blank">
                                             {{proof.getText(section.getLanguage())}}

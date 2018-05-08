@@ -47,12 +47,9 @@ export class EducationComponent implements OnInit {
   ngOnInit() {
   }
 
-  stateChange() {
-    this.state = this.state === 'none' ? 'block' : 'none';
-  }
-
-  stateReset() {
-    this.state = 'none';
+  stateChange(param?: string) {
+    if (param==null) this.state = this.state === "none" ? "block" : "none";
+    else this.state = param;
   }
 
 }

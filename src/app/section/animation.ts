@@ -34,6 +34,27 @@ export const expandList = trigger('mouseEvent',[
         ])))        
       ])
 
+    export const animateButton = [
+        trigger('sizeAnimation', [
+          state("*", style({
+            top: '{{topOffset}}',
+            left: '{{leftOffset}}',
+          }), {params: {
+                topOffset: '30%',
+                leftOffset: '50%'}}),
+          transition('* => *', animate('600ms 200ms ease-in-out'))
+        ]),
+        trigger('changeAnimation', [
+          state("pl", style({
+            backgroundImage: `url('/assets/images/pl.png')`
+          })),
+          state("eng", style({
+            backgroundImage: `url('/assets/images/eng.png')`
+          })),
+          transition('* => *', animate('600ms'))
+        ])
+      ]
+
 @Injectable()
 
 export class Animator {
