@@ -23,6 +23,9 @@ export class KeySkillsComponent implements OnInit {
   constructor() { 
     this.section = new ListModule.List(["Umiejętności","Key Skills"],[
     new ListModule.Node(["Informatyka:","Computer skills:"],[
+      new ListModule.Node(["HTML5 (Średniozaawansowany)","HTML5 (Intermediate)"]),
+      new ListModule.Node(["CSS3 (Średniozaawansowany)","CSS3 (Intermediate)"]),
+      new ListModule.Node(["RWD (podstawy)","RWD (basic)"]),
       new ListModule.Node(["C# (podstawy)","C# (basic)"]),
       new ListModule.Node(["Angular 5 (podstawy)","Angular 5 (basic)"],[
         new ListModule.Node([
@@ -34,6 +37,7 @@ export class KeySkillsComponent implements OnInit {
           ])]),
       new ListModule.Node(["TypeScript (podstawy)","TypeScript (basic)"]),
       new ListModule.Node(["JavaScript (podstawy)","JavaScript (basic)"]),
+      new ListModule.Node(["SCSS/SASS (początkujący)","SCSS/SASS (elementary)"]),
       new ListModule.Node(["Git (początkujący)","Git (elementary)"]),
       new ListModule.Node(["SQL (początkujący)","SQL (elementary)"])
     ]),
